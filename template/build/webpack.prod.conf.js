@@ -10,8 +10,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const env = require("../config/prod.env");
-
+const env = require(`../config/${process.env.NODE_ENV}.env`);
 const build_config = config[process.env.NODE_ENV];
 
 const webpackConfig = merge(baseWebpackConfig, {
