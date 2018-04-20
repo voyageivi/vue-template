@@ -3,40 +3,7 @@
  * 过滤器
  * ================================================================================
  */
-import dateUtil from '../core/date';
 
-/**
- * 格式化日期
- *
- * @param timestamp
- * @returns {*}
- */
-export const formatDate = timestamp => {
-  return dateUtil.date(timestamp)
-};
-
-export const date2 = timestamp => {
-  if (!timestamp) {
-    timestamp = new Date().valueOf() / 1000
-  }
-  var now = new Date(parseInt(timestamp) * 1000)
-  var year = now.getFullYear()
-  var month = now.getMonth() + 1
-  var date = now.getDate()
-  return (
-    month + '月' + dateUtil.formatTimeNumber(date) + '日&nbsp;&nbsp;' + year
-  )
-};
-
-/**
- * 格式化日期时间
- *
- * @param timestamp
- * @returns {*}
- */
-export const formatDateTime = timestamp => {
-  return dateUtil.dateTime(timestamp)
-};
 
 /**
  * 格式化价格（DB存储时以‘分’为单位，显示时以‘元’为单位）
@@ -47,16 +14,6 @@ export const formatPrice = price => {
   return parseFloat(price / 100).toFixed(2)
 };
 
-/**
- * 格式化距离当前时间过去了多久
- *
- * @param createTimestamp   创建时间
- * @param currentTimestamp  当前时间（服务器时间），为空则使用本地时间（本地时间可能不准确）
- * @returns {*} 距离当前时间过去了多久
- */
-export const formatDateDistance = (createTimestamp, currentTimestamp) => {
-  return dateUtil.dateDistance(createTimestamp, currentTimestamp)
-};
 
 /**
  * 格式化最大数量
