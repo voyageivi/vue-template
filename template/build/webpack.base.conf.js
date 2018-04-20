@@ -7,8 +7,8 @@ const vueLoaderConfig = require("./vue-loader.conf");
 function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
-const build_config = config[process.env.NODE_ENV];
 
+const build_config = config[process.env.NODE_ENV];
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: "eslint-loader",

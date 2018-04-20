@@ -1,4 +1,5 @@
 'use strict'
+process.env.NODE_ENV='dev';
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -12,36 +13,36 @@ const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
+const build_config=baseWebpackConfig.build_config;
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({ sourceMap: build_config.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
-  devtool: config.dev.devtool,
+  devtool: build_config.devtool,
 
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+        { from: /.*/, to: path.posix.join(build_config.assetsPublicPath, 'index.html') },
       ],
     },
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser,
-    overlay: config.dev.errorOverlay
+    host: HOST || build_config.host,
+    port: PORT || build_config.port,
+    open: build_config.autoOpenBrowser,
+    overlay: build_config.errorOverlay
       ? { warnings: false, errors: true }
       : false,
-    publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
+    publicPath: build_config.assetsPublicPath,
+    proxy: build_config.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
-      poll: config.dev.poll,
+      poll: build_config.poll,
     }
   },
   plugins: [
@@ -61,7 +62,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
+        to: build_config.assetsSubDirectory,
         ignore: ['.*']
       }
     ])
@@ -69,7 +70,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 
 module.exports = new Promise((resolve, reject) => {
-  portfinder.basePort = process.env.PORT || config.dev.port
+  portfinder.basePort = process.env.PORT || build_config.port
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
@@ -84,7 +85,7 @@ module.exports = new Promise((resolve, reject) => {
         compilationSuccessInfo: {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
-        onErrors: config.dev.notifyOnErrors
+        onErrors: build_config.notifyOnErrors
         ? utils.createNotifierCallback()
         : undefined
       }))

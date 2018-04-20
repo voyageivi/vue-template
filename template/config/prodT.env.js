@@ -1,4 +1,4 @@
 "use strict";
 module.exports = {
-  NODE_ENV: '"prod"'
+  NODE_ENV: '"prodT"'
 };

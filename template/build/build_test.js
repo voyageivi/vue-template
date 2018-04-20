@@ -9,12 +9,12 @@ const path = require("path");
 const chalk = require("chalk");
 const webpack = require("webpack");
 const config = require("../config");
-const webpackConfig = require("./webpack.test.conf");
-
+const webpackConfig = require("./webpack.prod.conf");
+const build_config = config[process.env.NODE_ENV];
 const spinner = ora("building for test...");
 spinner.start();
 
-rm(path.join(config.test.assetsRoot, config.test.assetsSubDirectory), err => {
+rm(path.join(build_config.assetsRoot, build_config.assetsSubDirectory), err => {
   if (err) throw err;
   webpack(webpackConfig, (err, stats) => {
     spinner.stop();
