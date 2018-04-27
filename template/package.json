@@ -32,8 +32,10 @@
     "babel-polyfill": "^6.26.0",
     "element-ui": "^2.3.5",
     "axios": "^0.18.0",
-    "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    {{#router}}"vue-router": "^3.0.1",{{/router}}
+    {{#vuex}}"vuex": "^3.0.1",{{/vuex}}
+    "vue": "^2.5.2"
+    
   },
   "devDependencies": {
     {{#lint}}
