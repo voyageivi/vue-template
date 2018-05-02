@@ -1,4 +1,4 @@
-import config from '../../config';
+import config from '../config';
 import $ from 'jquery';
 
 const UPLOAD_BASE_URL = config.UPLOAD_BASE_URL
