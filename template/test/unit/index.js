@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import 'promise-polyfill/src/polyfill'
 Vue.config.productionTip = false
 
 // require all test files (files that ends with .spec.js)

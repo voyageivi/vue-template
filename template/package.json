@@ -57,6 +57,7 @@
     "eslint-plugin-import": "^2.7.0",
     {{/if_eq}}
     {{/lint}}
+    {{#unit}}"promise-polyfill": "7.1.2",{{/unit}}
     {{#if_eq runner "jest"}}
     "babel-jest": "^21.0.2",
     "babel-plugin-dynamic-import-node": "^1.2.0",
