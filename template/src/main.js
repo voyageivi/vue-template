@@ -23,7 +23,7 @@ Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 Object.keys(directives).forEach(k => Vue.directive(k, filters[k]))
 Vue.config.productionTip = false
 
-Object.defineProperty(Vue.prototype, '$axios', { value: api.ajax });
+Object.defineProperty(Vue.prototype, '$axios', { value: api.def.inst });
 Object.defineProperty(Vue.prototype, 'Config', { value: config });
 Object.defineProperty(Vue.prototype, 'Api', { value: api });
 
