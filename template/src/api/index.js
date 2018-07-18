@@ -1,4 +1,4 @@
-import defApi from './def_api'
+import * as defApi from './def_api'
 
 export default {
   // ================================================================================
