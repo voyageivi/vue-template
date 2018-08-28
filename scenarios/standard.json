@@ -2,7 +2,7 @@
   "noEscape": true,
   "name": "test",
   "description": "A Vue.js project",
-  "author": "voyage1324 <voyage1324@163.com>",
+  "author": "CircleCI",
   "build": "standalone",
   "router": true,
   "lint": false,
