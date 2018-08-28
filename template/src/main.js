@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import api from './api';
 import config from './config';
@@ -12,7 +13,6 @@ import store from './store'
 {{/vuex}}
 // element-ui组件样式
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import * as filters from './filters'
 import * as directives from './directives';
 

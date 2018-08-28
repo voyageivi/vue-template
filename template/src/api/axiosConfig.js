@@ -89,4 +89,5 @@ export function createInstance (baseURL) {
     // 抛出错误
     return Promise.reject(error)
   })
+  return instance;
 }

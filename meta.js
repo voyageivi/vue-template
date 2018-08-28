@@ -74,6 +74,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+    externalVendor: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Whether external reference vue?',
+    },
     vuex: {
       when: 'isNotTest',
       type: 'confirm',
