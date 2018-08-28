@@ -3,17 +3,17 @@
   * @param res
   * @returns {*}
   */
-export function checkResponse (res) {
-  window.console.log('响应拦截器(checkResponse)：==========', res)
-  res = res || {}
-  let resultCode = parseInt(res.data.code) || 0
+ export function checkResponse (res) {
+  window.console.log('响应拦截器(checkResponse)：==========', res);
+  res = res || {};
+  let resultCode = parseInt(res.data.code) || 0;
   if (resultCode === 0) {
-    return Promise.resolve(res.data)
+    return Promise.resolve(res.data);
   } else {
-    var error = new Error()
-    error.resultCode = resultCode
-    error.resultMessage = res.data.message
-    return Promise.reject(error)
+    var error = new Error();
+    error.resultCode = resultCode;
+    error.resultMessage = res.data.message;
+    return Promise.reject(error);
   }
 }
 /**
@@ -23,6 +23,6 @@ export function checkResponse (res) {
   */
 export function handleError (error, handleFunc) {
   if ((handleFunc && typeof handleFunc === 'function')) {
-    handleFunc(error)
+    handleFunc(error);
   }
 }
