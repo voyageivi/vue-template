@@ -10,7 +10,7 @@
   "unit": false,
   "runner": "jest",
   "e2e": false,
-  "autoInstall": true,
+  "autoInstall": "npm",
   "vuex": true,
   "externalVendor": true
 }
