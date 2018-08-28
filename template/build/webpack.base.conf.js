@@ -19,11 +19,11 @@ const build_config = config[process.env.NODE_ENV];
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
 });{{/lint}}
-
+const mock=process.env.NODE_ENV==='dev'?['./mock/index.js']:[]
 module.exports = {
   context: path.resolve(__dirname, "../"),
   entry: {
-    app: ["babel-polyfill", "./src/main.js"]
+    app: ["babel-polyfill", "./src/main.js",...mock]
   },
   {{#externalVendor}}
   externals: {
