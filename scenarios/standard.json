@@ -1,0 +1,16 @@
+{ 
+  "noEscape": true,
+  "name": "test",
+  "description": "A Vue.js project",
+  "author": "voyage1324 <voyage1324@163.com>",
+  "build": "standalone",
+  "router": true,
+  "lint": false,
+  "lintConfig": "standard",
+  "unit": false,
+  "runner": "jest",
+  "e2e": false,
+  "autoInstall": true,
+  "vuex": true,
+  "externalVendor": true
+}
