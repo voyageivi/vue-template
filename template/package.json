@@ -38,6 +38,7 @@
     
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
     {{#lint}}
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
