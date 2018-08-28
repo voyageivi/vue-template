@@ -1,4 +1,4 @@
-{ 
+{
   "noEscape": true,
   "name": "test",
   "description": "A Vue.js project",
@@ -10,5 +10,7 @@
   "unit": true,
   "runner": "karma",
   "e2e": true,
-  "autoInstall": false
+  "autoInstall": false,
+  "vuex": true,
+  "externalVendor": true
 }
