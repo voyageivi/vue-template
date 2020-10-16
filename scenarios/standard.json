@@ -3,14 +3,5 @@
   "name": "test",
   "description": "A Vue.js project",
   "author": "CircleCI",
-  "build": "standalone",
-  "router": true,
-  "lint": false,
-  "lintConfig": "standard",
-  "unit": false,
-  "runner": "jest",
-  "e2e": false,
-  "autoInstall": "npm",
-  "vuex": true,
-  "externalVendor": true
+  "build": "standalone"
 }

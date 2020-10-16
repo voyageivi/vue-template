@@ -1,14 +1,19 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import test from './modules/test';
-Vue.use(Vuex);
+import Vue from 'vue'
+import Vuex from 'vuex'
+import getters from './getters'
+import app from './modules/app'
+import settings from './modules/settings'
+import user from './modules/user'
 
-const debug = process.env.NODE_ENV !== 'prod';
-Vue.config.debug = debug;
+Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   modules: {
-    test
+    app,
+    settings,
+    user
   },
-  strict: debug
-});
+  getters
+})
+
+export default store

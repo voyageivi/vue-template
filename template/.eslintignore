@@ -1,7 +1,4 @@
-/build/
-/config/
-/dist/
-/*.js
-{{#unit}}
-/test/unit/coverage/
-{{/unit}}
+build/*.js
+src/assets
+public
+dist

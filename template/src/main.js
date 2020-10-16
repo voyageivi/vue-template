@@ -1,46 +1,43 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import 'element-ui/lib/theme-chalk/index.css'
-import App from './App'
-import api from './api';
-import config from './config';
-{{#router}}
-import router from './router'
-{{/router}}
-{{#vuex}}
-import store from './store'
-{{/vuex}}
-// element-ui组件样式
-import ElementUI from 'element-ui'
-import * as filters from './filters'
-import * as directives from './directives';
 
-Vue.use(ElementUI)
-// 注册全局过滤器
-Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
-// 注册全局directives
-Object.keys(directives).forEach(k => Vue.directive(k, filters[k]))
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import locale from 'element-ui/lib/locale/lang/en' // lang i18n
+
+import '@/styles/index.scss' // global css
+
+import App from './App'
+import store from './store'
+import router from './router'
+
+import '@/icons' // icon
+import '@/permission' // permission control
+
+/**
+ * If you don't want to use mock-server
+ * you want to use MockJs for mock api
+ * you can execute: mockXHR()
+ *
+ * Currently MockJs will be used in the production environment,
+ * please remove it before going online ! ! !
+ */
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
+
+// set ElementUI lang to EN
+Vue.use(ElementUI, { locale })
+// 如果想要中文版 element-ui，按如下方式声明
+// Vue.use(ElementUI)
+
 Vue.config.productionTip = false
 
-Object.defineProperty(Vue.prototype, '$axios', { value: api.def.inst });
-Object.defineProperty(Vue.prototype, 'Config', { value: config });
-Object.defineProperty(Vue.prototype, 'Api', { value: api });
-
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
-  {{#router}}
   router,
-  {{/router}}
-  {{#vuex}}
   store,
-  {{/vuex}}
-  {{#if_eq build "runtime"}}
   render: h => h(App)
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  components: { App },
-  template: '<App/>'
-  {{/if_eq}}
 })
