@@ -93,7 +93,7 @@ module.exports = {
       ],
     },
   },
-  // filters: {
+  filters: {
   //   '.eslintrc.js': 'lint',
   //   '.eslintignore': 'lint',
   //   'config/test.env.js': 'unit || e2e',
@@ -107,7 +107,7 @@ module.exports = {
   //   'test/e2e/**/*': 'e2e',
   //   'src/router/**/*': 'router',
   //   'src/store/**/*': 'vuex',
-  // },
+  },
   complete: function(data, { chalk }) {
     const green = chalk.green
 

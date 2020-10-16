@@ -3,7 +3,7 @@ const scenarios = [
   'standard'
 ]
 
-const index = scenarios.indexOf(process.env.VUE_TEMPL_TEST)
+const index = scenarios.indexOf(process.env.VUE_TEMPL_TEST||'standard')
 
 const isTest = exports.isTest = index !== -1
 
